@@ -41,7 +41,6 @@ def dico_diou(num):
 
 if __name__ == '__main__':
     entree = input("Écrire un nombre : ")
-    taille = len(entree)
     entier = int(entree)
 
     try:
