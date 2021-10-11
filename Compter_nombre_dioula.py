@@ -2,7 +2,7 @@
     TRANSCRIT UN NOMBRE ENTIER EN LANGUE MANDINGUE
 '''
 
-def int_to_en(num):
+def dico_diou(num):
     d = { 1 : 'kilin', 2 : 'fula', 3 : 'saba', 4 : 'naani', 5 : 'luulu',
           6 : 'wooro', 7 : 'worowula', 8 : 'sey', 9 : 'kononto', 10 : 'taŋ',
           11 : 'taŋ niŋ kiliŋ', 12 : 'taŋ niŋ fula', 13 : 'taŋ niŋ saba', 14 : 'taŋ niŋ naani',
@@ -24,19 +24,19 @@ def int_to_en(num):
 
     if (num < k):
         if num % 100 == 0: return 'keme ' + d[num // 100]
-        else: return d[num // 100] + ' keme niŋ ' + int_to_en(num % 100)
+        else: return d[num // 100] + ' keme niŋ ' + dico_diou(num % 100)
 
     if (num < m):
-        if num % k == 0: return 'wuli ' + int_to_en(num // k)
-        else: return 'wuli ' + int_to_en(num // k) + " niŋ " + int_to_en(num % k)
+        if num % k == 0: return 'wuli ' + dico_diou(num // k)
+        else: return 'wuli ' + dico_diou(num // k) + " niŋ " + dico_diou(num % k)
 
     if (num < b):
-        if (num % m) == 0: return 'miliyoŋ ' + int_to_en(num // m)
-        else: return 'miliyoŋ' +int_to_en(num // m) + 'niŋ' + int_to_en(num % m)
+        if (num % m) == 0: return 'miliyoŋ ' + dico_diou(num // m)
+        else: return 'miliyoŋ' +dico_diou(num // m) + 'niŋ' + dico_diou(num % m)
 
     if (num < t):
-        if (num % b) == 0: return int_to_en(num // b) + ' miliyar'
-        else: return 'miliyar ' + int_to_en(num // b) + ' niŋ ' + int_to_en(num % b)
+        if (num % b) == 0: return dico_diou(num // b) + ' miliyar'
+        else: return 'miliyar ' + dico_diou(num // b) + ' niŋ ' + dico_diou(num % b)
 
 
 if __name__ == '__main__':
@@ -45,8 +45,8 @@ if __name__ == '__main__':
     entier = int(entree)
 
     try:
-        assert(0 <= entier or entier == 0)
-        t = int_to_en(entier)
+        assert(0 <= entier)
+        t = dico_diou(entier)
         print("Signifie: ",t)
     except AssertionError as msg:
         print(msg, "Le mot n\'existe pas en mandingue")
